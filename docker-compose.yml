@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  web:
+    build: ./web
+    container_name: mcp-web
+    ports:
+      - "9000:9000"
+    restart: unless-stopped
+
+  mcp:
+    build: ./mcp
+    container_name: mcp-server
+    depends_on:
+      - web
+    ports:
+      - "9100:9100"
+    restart: unless-stopped
+
+  agent:
+    build: ./agent
+    container_name: mcp-agent
+    depends_on:
+      - mcp
+    environment:
+      # 실제 키로 바꿔줘야 함
+      - OPENAI_API_KEY=YOUR_OPENAI_API_KEY_HERE
+    # agent는 한 번 실행하고 끝나는 구조라 restart는 안 걸어도 됨
