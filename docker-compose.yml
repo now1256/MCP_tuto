@@ -23,6 +23,5 @@ services:
     depends_on:
       - mcp
     environment:
-      # 실제 키로 바꿔줘야 함
-      - OPENAI_API_KEY=YOUR_OPENAI_API_KEY_HERE
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
     # agent는 한 번 실행하고 끝나는 구조라 restart는 안 걸어도 됨
