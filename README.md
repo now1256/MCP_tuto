@@ -14,8 +14,6 @@
 
 ## 📦 전체 구조
 
-도커 기준 서비스 구성은 다음과 같습니다.
-
 ```text
 브라우저
   ↓
@@ -34,4 +32,42 @@
 
   ↓ Google API
 
+
 [Gemini API]
+
+
+디렉터리 구조
+.
+├─ docker-compose.yml
+├─ .env
+├─ web/
+│  ├─ Dockerfile
+│  └─ web_main.py
+└─ mcp/
+   ├─ Dockerfile
+   └─ mcp_server.py
+```
+
+
+## 🚀 설치 및 실행
+
+```text
+1. 저장소 클론
+git clone <레포주소>.git
+cd <레포디렉토리>
+
+2. .env 생성
+GEMINI_API_KEY=YOUR_KEY
+
+WEB_BASE_URL=http://web:9000
+MCP_BASE_URL=http://mcp:9100
+
+GEMINI_MODEL_NAME=gemini-1.5-flash
+
+3. 실행
+docker-compose down
+docker-compose up --build
+
+브라우저 접속
+http://localhost:9000
+
