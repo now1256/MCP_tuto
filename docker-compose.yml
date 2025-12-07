@@ -6,6 +6,8 @@ services:
     container_name: mcp-web
     ports:
       - "9000:9000"
+    env_file:
+      - .env          # ← .env 읽어서 컨테이너 환경변수로 넣기
     restart: unless-stopped
 
   mcp:
@@ -15,13 +17,13 @@ services:
       - web
     ports:
       - "9100:9100"
+    env_file:
+      - .env          # ← 동일하게 .env 사용
     restart: unless-stopped
 
-  agent:
-    build: ./agent
-    container_name: mcp-agent
-    depends_on:
-      - mcp
-    environment:
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
-    # agent는 한 번 실행하고 끝나는 구조라 restart는 안 걸어도 됨
+  # agent:
+  #   build: ./agent
+  #   container_name: mcp-agent
+  #   depends_on:
+  #     - mcp
+  #   restart: unless-stopped
