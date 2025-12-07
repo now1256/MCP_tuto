@@ -53,8 +53,7 @@
 
 ```text
 1. 저장소 클론
-git clone <레포주소>.git
-cd <레포디렉토리>
+git clone https://github.com/now1256/MCP_tuto.git
 
 2. .env 생성
 GEMINI_API_KEY=YOUR_KEY
@@ -62,7 +61,7 @@ GEMINI_API_KEY=YOUR_KEY
 WEB_BASE_URL=http://web:9000
 MCP_BASE_URL=http://mcp:9100
 
-GEMINI_MODEL_NAME=gemini-1.5-flash
+GEMINI_MODEL_NAME=gemini-flash-latest
 
 3. 실행
 docker-compose down
