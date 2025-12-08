@@ -64,8 +64,8 @@ MCP_BASE_URL=http://mcp:9100
 GEMINI_MODEL_NAME=gemini-flash-latest
 
 3. 실행
-docker-compose down
-docker-compose up --build
+docker-compose build
+docker-compose up 
 
 브라우저 접속
 http://localhost:9000
